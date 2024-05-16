@@ -35,6 +35,8 @@ public class Book {
     LocalDateTime createdAt = LocalDateTime.now();
     String updatedBy;
     LocalDateTime updatedAt;
+    Boolean isInactive = false;
+    Boolean isDeleted = false;
 
     public Book(String bookName, String bookDescription, User bookAuthor, Collection<BookCategory> bookCategories, String bookPhotoPath, String createdBy) {
         this.bookName = bookName;
@@ -105,5 +107,71 @@ public class Book {
 
     public void setBookPhotoPath(String bookPhotoPath) {
         this.bookPhotoPath = bookPhotoPath;
+    }
+
+    public String getCreatedBy() {
+        return createdBy;
+    }
+
+    public void setCreatedBy(String createdBy) {
+        this.createdBy = createdBy;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public String getUpdatedBy() {
+        return updatedBy;
+    }
+
+    public void setUpdatedBy(String updatedBy) {
+        this.updatedBy = updatedBy;
+    }
+
+    public LocalDateTime getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(LocalDateTime updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    public Boolean getInactive() {
+        return isInactive;
+    }
+
+    public void setInactive(Boolean inactive) {
+        isInactive = inactive;
+    }
+
+    public Boolean getDeleted() {
+        return isDeleted;
+    }
+
+    public void setDeleted(Boolean deleted) {
+        isDeleted = deleted;
+    }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "id=" + id +
+                ", bookName='" + bookName + '\'' +
+                ", bookDescription='" + bookDescription + '\'' +
+                ", bookAuthor=" + bookAuthor +
+                ", bookCategories=" + bookCategories +
+                ", bookPhotoPath='" + bookPhotoPath + '\'' +
+                ", createdBy='" + createdBy + '\'' +
+                ", createdAt=" + createdAt +
+                ", updatedBy='" + updatedBy + '\'' +
+                ", updatedAt=" + updatedAt +
+                ", isInactive=" + isInactive +
+                ", isDeleted=" + isDeleted +
+                '}';
     }
 }

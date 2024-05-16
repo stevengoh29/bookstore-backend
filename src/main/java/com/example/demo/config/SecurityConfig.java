@@ -1,5 +1,7 @@
 package com.example.demo.config;
 
+import com.example.demo.component.AuthenticationFailedEntryPoint;
+import com.example.demo.component.JwtAuthenticationFilter;
 import com.example.demo.module.user.UserDetailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
