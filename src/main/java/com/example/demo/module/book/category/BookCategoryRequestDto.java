@@ -9,6 +9,16 @@ public class BookCategoryRequestDto {
     String username;
     UUID bookCategoryId;
 
+    public BookCategoryRequestDto() {
+
+    }
+
+    public BookCategoryRequestDto(String categoryName, String categoryDescription, String username) {
+        this.categoryName = categoryName;
+        this.categoryDescription = categoryDescription;
+        this.username = username;
+    }
+
     public String getCategoryName() {
         return categoryName;
     }

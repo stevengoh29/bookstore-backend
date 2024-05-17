@@ -28,7 +28,7 @@ public class ResponseTemplate<T> {
         this.data = data;
     }
 
-    public ResponseTemplate<List<?>> setResponseTemplate (Integer responseCode, String message, List<?> data) {
+    public ResponseTemplate<List<?>> build (Integer responseCode, String message, List<?> data) {
         ResponseTemplate<List<?>> response = new ResponseTemplate<>();
         response.setStatus(responseCode);
         response.setMessage(message);
@@ -37,7 +37,7 @@ public class ResponseTemplate<T> {
         return response;
     }
 
-    public ResponseTemplate<String> setResponseTemplate (Integer responseCode, String message) {
+    public ResponseTemplate<String> build (Integer responseCode, String message) {
         ResponseTemplate<String> response = new ResponseTemplate<String>();
         response.setStatus(responseCode);
         response.setMessage(message);
@@ -46,7 +46,7 @@ public class ResponseTemplate<T> {
         return response;
     }
 
-    public ResponseTemplate<Object> setResponseTemplate (Integer responseCode, String message, Object data) {
+    public ResponseTemplate<Object> build (Integer responseCode, String message, Object data) {
         ResponseTemplate<Object> response = new ResponseTemplate<Object>();
         response.setStatus(responseCode);
         response.setMessage(message);

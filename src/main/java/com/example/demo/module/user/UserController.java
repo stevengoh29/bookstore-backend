@@ -22,14 +22,14 @@ public class UserController {
     public ResponseEntity<?> getUsers() {
         List<User> users = userService.getUsers();
         HttpStatus httpStatusOk = HttpStatus.OK;
-        return new ResponseEntity<>(responseTemplate.setResponseTemplate(httpStatusOk.value(), "List of users fetched", users), httpStatusOk);
+        return new ResponseEntity<>(responseTemplate.build(httpStatusOk.value(), "List of users fetched", users), httpStatusOk);
     }
 
     @GetMapping("{userId}")
     public ResponseEntity<?> getUserByUserId(@PathVariable("userId") UUID userId) {
         User user = userService.getUserById(userId);
         HttpStatus httpStatusOk = HttpStatus.OK;
-        return new ResponseEntity<>(responseTemplate.setResponseTemplate(httpStatusOk.value(), "User is fetched", user), httpStatusOk);
+        return new ResponseEntity<>(responseTemplate.build(httpStatusOk.value(), "User is fetched", user), httpStatusOk);
     }
 
     @PostMapping()

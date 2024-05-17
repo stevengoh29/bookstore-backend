@@ -40,6 +40,8 @@ public class BookService {
 
         // Optionally, log each entity individually
         books.forEach(entity -> log.info("Book fetched: {}", entity));
+
+        return books;
     }
 
     public Book getBookById(UUID bookId) {
