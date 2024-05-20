@@ -6,9 +6,11 @@ import com.example.demo.module.book.category.BookCategoryService;
 import com.example.demo.module.book.core.Book;
 import com.example.demo.module.book.core.BookRequestDto;
 import com.example.demo.module.book.core.BookService;
+import com.example.demo.module.common.upload.UploadService;
 import com.example.demo.module.user.User;
 import com.example.demo.module.user.UserRequest;
 import com.example.demo.module.user.UserService;
+import jakarta.annotation.Resource;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -19,17 +21,26 @@ import java.util.ArrayList;
 import java.util.List;
 
 @SpringBootApplication
-public class DemoApplication {
+public class DemoApplication implements CommandLineRunner {
+
+	@Resource
+	UploadService uploadService;
 
 	public static void main(String[] args) {
 		SpringApplication.run(DemoApplication.class, args);
 	}
 
+	@Override
+	public void run(String... arg) throws Exception {
+    //uploadService.deleteAll();
+		uploadService.init();
+	}
+
 	@Bean
 	public CommandLineRunner initUser (UserService userService, PasswordEncoder passwordEncoder, BookCategoryService bookCategoryService, BookService bookService) {
 		return args -> {
-			UserRequest request = new UserRequest("admin", passwordEncoder.encode("admin"), "Testing");
-			User user = userService.addUser(request);
+//			UserRequest request = new UserRequest("admin", passwordEncoder.encode("admin"), "Testing");
+//			User user = userService.addUser(request);
 
 //			BookCategoryRequestDto bookCategoryRequestDto = new BookCategoryRequestDto("Horror", "This is horror section", user.getId().toString());
 //			BookCategory category = bookCategoryService.addBookCategory(bookCategoryRequestDto);

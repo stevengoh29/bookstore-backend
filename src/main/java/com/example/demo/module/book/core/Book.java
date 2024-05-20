@@ -38,6 +38,9 @@ public class Book {
     Boolean isInactive = false;
     Boolean isDeleted = false;
 
+    public Book() {
+    }
+
     public Book(String bookName, String bookDescription, User bookAuthor, Collection<BookCategory> bookCategories, String bookPhotoPath, String createdBy) {
         this.bookName = bookName;
         this.bookDescription = bookDescription;
@@ -45,6 +48,15 @@ public class Book {
         this.bookCategories = bookCategories;
         this.bookPhotoPath = bookPhotoPath;
         this.createdBy = createdBy;
+    }
+
+    public Book(UUID id, String bookName, String bookDescription, User bookAuthor, Collection<BookCategory> bookCategories, String bookPhotoPath, String createdBy) {
+        this.id = id;
+        this.bookName = bookName;
+        this.bookDescription = bookDescription;
+        this.bookAuthor = bookAuthor;
+        this.bookCategories = bookCategories;
+        this.bookPhotoPath = bookPhotoPath;
     }
 
     public Book(String bookName, String bookDescription, User bookAuthor, Collection<BookCategory> bookCategories, String bookPhotoPath) {

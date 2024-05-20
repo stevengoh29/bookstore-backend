@@ -63,7 +63,7 @@ public class BookService {
             if (bookCategories.size() != payload.bookCategoriesId().size())
                 throw new CategoryNotFoundException("Category is not found. Please check the categories Id in request.");
 
-            Book book = new Book(payload.bookName(), payload.bookDescription(), user, bookCategories, null, payload.createdBy());
+            Book book = new Book(payload.bookName(), payload.bookDescription(), user, bookCategories, payload.bookPhotoPath(), payload.createdBy());
 
             Book result = bookRepository.save(book);
             log.info("Add Book is successful. Data: {}", result);
@@ -86,7 +86,7 @@ public class BookService {
         if (bookCategories.size() != payload.bookCategoriesId().size())
             throw new CategoryNotFoundException("Category is not found. Please check the categories Id in request.");
 
-        Book bookToUpdate = new Book(payload.bookName(), payload.bookDescription(), user, bookCategories, null);
+        Book bookToUpdate = new Book(payload.bookName(), payload.bookDescription(), user, bookCategories, payload.bookPhotoPath());
         bookToUpdate.setUpdatedBy(payload.updatedBy());
         bookToUpdate.setUpdatedAt(LocalDateTime.now());
 
